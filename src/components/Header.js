@@ -7,7 +7,7 @@ export default function Header() {
       <div class="container"  >
 <img src={header} alt="header" style={{width:"35%", height:"12vh", float:'right'}} />
 
-<div class="centered">Algorithms Visualiser</div>
+<div class="centered">Algorithms Visualizer</div>
 </div>
     )
 }
