@@ -15,7 +15,10 @@ function App() {
   let [swapIndex, setSwapIndex] = useState([-1, -1]);
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
-
+  let [slider, setSlider] = useState(null);
+  useEffect(()=>{
+setSlider(<InputSlider setVal={(val) => setLen(val)} />)
+  },[]);
  
   useEffect(() => {
     setAr(Array.from({ length: len }, () => Math.floor(Math.random() * 100)));
@@ -30,6 +33,8 @@ function App() {
   }, [ar, len, swapIndex]);
 
 
+
+
   console.log('ar', ar);
 
   
@@ -38,7 +43,9 @@ function App() {
       <Header />
       <div className="row secondary-header" >
         <AlgosDropdown />
-        <InputSlider setVal={(val) => setLen(val)} />
+        {
+          slider
+        }
 
         <button
           className="btn"

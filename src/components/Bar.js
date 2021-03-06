@@ -9,7 +9,7 @@ export default function Bar({len,max,val,i,refs}) {
     return (
         <Tooltip title={val} >
             
-        <div className="bar" id={i}  style={{
+        <div className="bar" key={i}  style={{
                                     border:'1px solid black',
                                     backgroundColor:colorRef,
                                     width:(window.innerWidth)/(1.5*len),

@@ -59,7 +59,7 @@ align-items: center;
   
 }
 
-.headerText {
+.header-text {
   font-size: 2.5em;
   /* position: absolute; */
   /* top: 50%;
@@ -107,4 +107,25 @@ a{
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.header-image{
+  width: 35%;
+  height: 12vh;
+  float:right;
+}
+
+@media screen and (max-width:480px){
+  .secondary-header{
+    align-items:center;
+   flex-direction: column;
+  }
+
+  .container{
+    flex-direction: column;
+  }
+
+  .header-image{
+    width: 100%;
+  }
 }
