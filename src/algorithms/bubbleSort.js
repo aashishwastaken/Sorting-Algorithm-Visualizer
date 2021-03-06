@@ -7,9 +7,9 @@ function sleep(ms) {
     //let [swapIndex, setSwapIndex] = useState([-1, -1]);
     let b = ar;
 
-    console.log('bubbleSort before', b);
+    //console.log('bubbleSort before', b);
     let delay = async (b, i, j) => {
-      console.log('swap', b[i], b[j]);
+      //console.log('swap', b[i], b[j]);
       let temp = b[j];
 
       b[j] = b[j + 1];
@@ -30,7 +30,7 @@ function sleep(ms) {
       }
     }
 
-    console.log('bubbleSort after', b);
+    //console.log('bubbleSort after', b);
 
   };
 
