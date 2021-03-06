@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Icon from '@material-ui/core/Icon';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import InputSlider from './components/InputSlider';
+
 import Bar from './components/Bar';
 import './App.css';
 import Header from './components/Header';
 import AlgosDropdown from './components/AlgosDropdown';
 import bubbleSort from './algorithms/bubbleSort';
-// import bubbleSort from './algorithms/bubbleSort';
+
 
 
 function App() {
