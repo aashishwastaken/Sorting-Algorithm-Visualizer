@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Only bubble dort is implemented yet :)
+## Only Bubble Sort is implemented yet :)
 ## Available Scripts
 
 In the project directory, you can run:
