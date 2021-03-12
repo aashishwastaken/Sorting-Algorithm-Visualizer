@@ -132,10 +132,7 @@ a{
   }
 }
 
-#foot-note{
-  position: absolute;
-  bottom:1em;
-}
+
 
 @media screen and (max-width:480px){
   .secondary-header{
