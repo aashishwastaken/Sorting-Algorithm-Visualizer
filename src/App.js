@@ -37,7 +37,7 @@ setSlider(<InputSlider setVal={(val) => setLen(val)} />)
   useEffect(() => {
     setAr(Array.from({ length: len }, () => Math.floor(Math.random() * 100)));
     setSwapIndex([-1, -1]);
-  }, [len]);
+  }, [len,algo]);
 
   useEffect(() => {
     setBars(ar.map((x, i) => {
