@@ -13,7 +13,7 @@ export default function Bar({len,max,val,i,refs}) {
                                     border:'1px solid black',
                                     backgroundColor:colorRef,
                                     width:(window.innerWidth)/(1.5*len),
-                                    height:((3*window.innerHeight/4)/max)*val
+                                    height:((3*window.innerHeight/5)/max)*val
                                     }}>
             {val}
         </div>

@@ -115,6 +115,28 @@ a{
   float:right;
 }
 
+.algo-image{
+  width: 1.1em;
+  height: 1.1em;
+  position: relative;
+  top:0.2em;
+  animation: rotationx 2s infinite linear;
+}
+
+@keyframes rotationx {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+#foot-note{
+  position: absolute;
+  bottom:1em;
+}
+
 @media screen and (max-width:480px){
   .secondary-header{
     align-items:center;

@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function AlgosDropdown() {
+export default function AlgosDropdown({algo,setAlgo}) {
     const classes = useStyles();
-    const [algo, setAlgo] = React.useState('Bubble Sort');
+    
 
     const handleChange = (event) => {
         setAlgo(event.target.value);

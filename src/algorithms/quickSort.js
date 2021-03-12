@@ -1,0 +1,37 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+ let quickSort = async (ar, len, setAr,setSwapIndex) => {
+    //let [swapIndex, setSwapIndex] = useState([-1, -1]);
+    let b = ar;
+
+    //console.log('quickSort before', b);
+    let delay = async (b, i, j) => {
+      //console.log('swap', b[i], b[j]);
+      let temp = b[j];
+
+      b[j] = b[j + 1];
+      b[j + 1] = temp;
+      setSwapIndex([j, j + 1]);
+      await sleep((100));
+      setAr([...b]);
+    }
+
+    for (let i = 0, k = 0; i < len - 1; i++, k++) {
+
+      for (let j = 0; j < len - i - 1; j++, k++) {
+
+        if (b[j] > b[j + 1]) {
+          // swap ar[j+1] and arr[j] 
+          await delay(b, i, j);
+        }
+      }
+    }
+
+    //console.log('quickSort after', b);
+
+  };
+
+  export default quickSort;

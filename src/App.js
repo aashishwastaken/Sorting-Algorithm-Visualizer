@@ -7,8 +7,9 @@ import './App.css';
 import Header from './components/Header';
 import AlgosDropdown from './components/AlgosDropdown';
 import bubbleSort from './algorithms/bubbleSort';
-
-
+import quickSort from './algorithms/quickSort';
+import mergeSort from './algorithms/mergeSort';
+import insertionSort from './algorithms/insertionSort';
 
 function App() {
   const [len, setLen] = useState(30);
@@ -16,6 +17,19 @@ function App() {
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
   let [slider, setSlider] = useState(null);
+  let [algo, setAlgo] = useState('Bubble Sort');
+
+  let onSort=()=>{
+    if(algo==='Bubble Sort')
+      bubbleSort(ar, len, setAr,setSwapIndex);
+    else if(algo==='Quick Sort')
+      quickSort(ar, len, setAr,setSwapIndex);
+    else if(algo==='Merge Sort')
+      mergeSort(ar, len, setAr,setSwapIndex);
+    else if(algo==='Insertion Sort')
+      insertionSort(ar, len, setAr,setSwapIndex);
+  }
+
   useEffect(()=>{
 setSlider(<InputSlider setVal={(val) => setLen(val)} />)
   },[]);
@@ -42,14 +56,14 @@ setSlider(<InputSlider setVal={(val) => setLen(val)} />)
     <div className="App">
       <Header />
       <div className="row secondary-header" >
-        <AlgosDropdown />
+        <AlgosDropdown algo={algo} setAlgo={setAlgo} />
         {
           slider
         }
 
         <button
           className="btn"
-          onClick={() => bubbleSort(ar, len, setAr,setSwapIndex)}
+          onClick={() =>onSort()}
         >
           <PlaylistPlayIcon /> Sort
       </button>
@@ -60,6 +74,7 @@ setSlider(<InputSlider setVal={(val) => setLen(val)} />)
           bars
         }
       </div>
+      <p id="foot-note">Imagined by UnEmployed Alumni</p>
     </div>
   );
 }
