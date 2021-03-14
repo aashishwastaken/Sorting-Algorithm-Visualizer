@@ -3,7 +3,7 @@ function sleep(ms) {
 }
 
 
-let selectionSort = async (ar, len, speed, setAr, setSwapIndex,setSelectedIndex, setCompIndex, setSortedIndex) => {
+let selectionSort = async (ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex) => {
     //let [swapIndex, setSwapIndex] = useState([-1, -1]);
 
     let b = ar;
@@ -15,7 +15,7 @@ let selectionSort = async (ar, len, speed, setAr, setSwapIndex,setSelectedIndex,
         setSwapIndex([i, j]);
         await sleep((speed));
         setAr([...b1]);
-        setSwapIndex([-1, -1]);
+        setSwapIndex([]);
     }
     let delayForComparision = async (b1, j, m) => {
         //console.log('swap', b[i], b[j]);
@@ -23,7 +23,7 @@ let selectionSort = async (ar, len, speed, setAr, setSwapIndex,setSelectedIndex,
         setCompIndex([j]);
         await sleep((speed));
         setAr([...b1]);
-        setCompIndex([-1, -1]);
+        setCompIndex([]);
     }
 
 
