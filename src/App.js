@@ -11,12 +11,14 @@ import bubbleSort from './algorithms/bubbleSort';
 import quickSort from './algorithms/quickSort';
 import mergeSort from './algorithms/mergeSort';
 import insertionSort from './algorithms/insertionSort';
+import selectionSort from './algorithms/selectionSort';
 
 function App() {
   let [len, setLen] = useState(30);
   let [speed, setSpeed] = useState(50);
-  let [swapIndex, setSwapIndex] = useState([-1, -1]);
-  let [compIndex, setCompIndex] = useState([-1, -1]);
+  let [swapIndex, setSwapIndex] = useState([]);
+  let [selectedIndex, setSelectedIndex] = useState([]);
+  let [compIndex, setCompIndex] = useState([]);
   let [sortedIndex, setSortedIndex] = useState([]);
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
@@ -26,6 +28,8 @@ function App() {
   let onSort = () => {
     if (algo === 'Bubble Sort')
       bubbleSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+    else if (algo === 'Selection Sort')
+      selectionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);  
     else if (algo === 'Quick Sort')
       quickSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
     else if (algo === 'Merge Sort')
@@ -40,17 +44,18 @@ function App() {
 
   useEffect(() => {
     setAr(Array.from({ length: len }, () => Math.floor(Math.random() * 100)));
-    setSwapIndex([-1, -1]);
-    setCompIndex([-1,-1]);
+    setSwapIndex([]);
+    setCompIndex([]);
     setSortedIndex([]);
+    setSelectedIndex([]);
   }, [len, algo,speed]);
 
   useEffect(() => {
     setBars(ar.map((x, i) => {
-      return <Bar i={i} val={x} max={100} len={len} swapRef={swapIndex} compRef={compIndex} sortedRef={sortedIndex} />
+      return <Bar i={i} val={x} max={100} len={len} swapRef={swapIndex} selectedRef={selectedIndex} compRef={compIndex} sortedRef={sortedIndex} />
     }));
     //setSwapIndex([-1,-1]);
-  }, [ar, len, swapIndex,compIndex,sortedIndex]);
+  }, [ar, len, swapIndex, selectedIndex, compIndex, sortedIndex]);
 
 
 

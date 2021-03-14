@@ -1,7 +1,7 @@
 import React from 'react'
 import Tooltip from '@material-ui/core/Tooltip';
 
-export default function Bar({len,max,val,i,swapRef,compRef,sortedRef}) {
+export default function Bar({len,max,val,i,swapRef,selectedRef,compRef,sortedRef}) {
     let colorRef='#3cb1e0';
     let width=(window.innerWidth)/(2.4*len);
     let height=((3*window.innerHeight/5)/max)*val;
@@ -15,7 +15,10 @@ export default function Bar({len,max,val,i,swapRef,compRef,sortedRef}) {
     if(sortedRef.includes(i)){
         colorRef="#09f272";
     }
-
+    if(selectedRef.includes(i)){
+        colorRef="#ff00fa";
+    }
+    
 
     if(window.innerWidth<480){
     height=(window.innerWidth)/(2.4*len);

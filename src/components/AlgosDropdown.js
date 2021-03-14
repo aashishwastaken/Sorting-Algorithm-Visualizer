@@ -35,6 +35,7 @@ export default function AlgosDropdown({algo,setAlgo}) {
             >
                 
                 <MenuItem value="Bubble Sort">Bubble Sort</MenuItem>
+                <MenuItem value="Selection Sort">Selection Sort</MenuItem>
                 <MenuItem value="Merge Sort">Merge Sort</MenuItem>
                 <MenuItem value="Insertion Sort">Insertion Sort</MenuItem>
                 <MenuItem value="Quick Sort">Quick Sort</MenuItem>
