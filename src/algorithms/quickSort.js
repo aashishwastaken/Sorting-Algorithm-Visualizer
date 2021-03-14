@@ -3,7 +3,7 @@ function sleep(ms) {
   }
 
 
- let quickSort = async (ar, len, setAr,setSwapIndex) => {
+ let quickSort = async (ar, len, setAr,setSwapIndex,setCompIndex) => {
     //let [swapIndex, setSwapIndex] = useState([-1, -1]);
     let b = ar;
 

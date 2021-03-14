@@ -3,7 +3,7 @@ function sleep(ms) {
   }
 
 
- let insertionSort = async (ar, len, setAr,setSwapIndex) => {
+ let insertionSort = async (ar, len, setAr,setSwapIndex,setCompIndex) => {
     //let [swapIndex, setSwapIndex] = useState([-1, -1]);
     let b = ar;
 

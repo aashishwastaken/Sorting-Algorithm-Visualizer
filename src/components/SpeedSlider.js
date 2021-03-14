@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Input from '@material-ui/core/Input';
-import DialpadOutlinedIcon from '@material-ui/icons/DialpadOutlined';
+import SpeedIcon from '@material-ui/icons/Speed';
 
 const useStyles = makeStyles({
   root: {
@@ -15,14 +15,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function InputSlider(props) {
+export default function SpeedSlider(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(30);
-props.setVal(value);
+  const [value, setValue] = React.useState(50);
+
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
+   
   };
 
+  useEffect(()=>{
+    props.setVal(100-value);
+  },[value,props]);
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
   };
@@ -38,11 +42,11 @@ props.setVal(value);
   return (
     <div className={classes.root}>
       <Typography id="input-slider" gutterBottom>
-        Select number of elements
+        Select Speed
       </Typography>
       <Grid container spacing={2} alignItems="center">
         <Grid item>
-          <DialpadOutlinedIcon />
+          <SpeedIcon />
         </Grid>
         <Grid item xs>
           <Slider

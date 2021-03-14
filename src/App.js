@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
-import InputSlider from './components/InputSlider';
 
+import SpeedSlider from './components/SpeedSlider';
+import ArraySizeSlider from './components/ArraySizeSlider';
 import Bar from './components/Bar';
 import './App.css';
 import Header from './components/Header';
@@ -12,46 +13,51 @@ import mergeSort from './algorithms/mergeSort';
 import insertionSort from './algorithms/insertionSort';
 
 function App() {
-  const [len, setLen] = useState(30);
+  let [len, setLen] = useState(30);
+  let [speed, setSpeed] = useState(50);
   let [swapIndex, setSwapIndex] = useState([-1, -1]);
+  let [compIndex, setCompIndex] = useState([-1, -1]);
+  let [sortedIndex, setSortedIndex] = useState([]);
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
   let [slider, setSlider] = useState(null);
   let [algo, setAlgo] = useState('Bubble Sort');
 
-  let onSort=()=>{
-    if(algo==='Bubble Sort')
-      bubbleSort(ar, len, setAr,setSwapIndex);
-    else if(algo==='Quick Sort')
-      quickSort(ar, len, setAr,setSwapIndex);
-    else if(algo==='Merge Sort')
-      mergeSort(ar, len, setAr,setSwapIndex);
-    else if(algo==='Insertion Sort')
-      insertionSort(ar, len, setAr,setSwapIndex);
+  let onSort = () => {
+    if (algo === 'Bubble Sort')
+      bubbleSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+    else if (algo === 'Quick Sort')
+      quickSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+    else if (algo === 'Merge Sort')
+      mergeSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+    else if (algo === 'Insertion Sort')
+      insertionSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
   }
 
-  useEffect(()=>{
-setSlider(<InputSlider setVal={(val) => setLen(val)} />)
-  },[]);
- 
+  useEffect(() => {
+    setSlider(<><ArraySizeSlider value={len} setValue={(val) => setLen(val)} /><SpeedSlider setVal={(val) => setSpeed(val)} /></>)
+  }, [len,speed]);
+
   useEffect(() => {
     setAr(Array.from({ length: len }, () => Math.floor(Math.random() * 100)));
     setSwapIndex([-1, -1]);
-  }, [len,algo]);
+    setCompIndex([-1,-1]);
+    setSortedIndex([]);
+  }, [len, algo,speed]);
 
   useEffect(() => {
     setBars(ar.map((x, i) => {
-      return <Bar i={i} val={x} max={100} len={len} refs={swapIndex} />
+      return <Bar i={i} val={x} max={100} len={len} swapRef={swapIndex} compRef={compIndex} sortedRef={sortedIndex} />
     }));
     //setSwapIndex([-1,-1]);
-  }, [ar, len, swapIndex]);
+  }, [ar, len, swapIndex,compIndex,sortedIndex]);
 
 
 
 
-  console.log('ar', ar);
+  // console.log('ar', ar);
 
-  
+
   return (
     <div className="App">
       <Header />
@@ -63,13 +69,14 @@ setSlider(<InputSlider setVal={(val) => setLen(val)} />)
 
         <button
           className="btn"
-          onClick={() =>onSort()}
+          onClick={() => onSort()}
         >
           <PlaylistPlayIcon /> Sort
       </button>
+      
       </div>
 
-      <div className="row">
+      <div id="chart" className={(window.innerWidth>480)?'row':'column'}>
         {
           bars
         }

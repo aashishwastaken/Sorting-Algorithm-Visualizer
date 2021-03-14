@@ -3,7 +3,7 @@ function sleep(ms) {
   }
 
 
- let mergeSort = async (ar, len, setAr,setSwapIndex) => {
+ let mergeSort = async (ar, len, setAr,setSwapIndex,setCompIndex) => {
     //let [swapIndex, setSwapIndex] = useState([-1, -1]);
     let b = ar;
 
