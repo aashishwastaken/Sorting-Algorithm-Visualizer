@@ -20,9 +20,9 @@ export default function Bar({len,max,val,i,swapRef,selectedRef,compRef,sortedRef
     }
     
 
-    if(window.innerWidth<480){
-    height=(window.innerWidth)/(2.4*len);
-    width=((3*window.innerHeight/5)/max)*val;
+    if(window.innerWidth<500){
+    height=(window.innerHeight)/(2.4*len);
+    width=((3*window.innerWidth/5)/max)*val;
     }
     return (
         <Tooltip key={i} title={val} >
