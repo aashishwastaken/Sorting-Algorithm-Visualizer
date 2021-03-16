@@ -138,6 +138,21 @@ a{
   }
 }
 
+#legend{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 500;
+}
+.legendColor{
+  width: 1em;
+  height: 1em;
+  border: 2px black solid;
+}
+.legendTitle{
+  font-size: 1em;
+  margin-left:0.2em;
+}
 
 
 @media screen and (max-width:480px){

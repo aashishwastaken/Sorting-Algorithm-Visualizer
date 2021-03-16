@@ -7,6 +7,7 @@ import Bar from './components/Bar';
 import './App.css';
 import Header from './components/Header';
 import AlgosDropdown from './components/AlgosDropdown';
+import Legends from './components/Legends';
 import bubbleSort from './algorithms/bubbleSort';
 import quickSort from './algorithms/quickSort';
 import mergeSort from './algorithms/mergeSort';
@@ -23,18 +24,18 @@ function App() {
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
   let [slider, setSlider] = useState(null);
-  let [algo, setAlgo] = useState('Bubble Sort');
+  let [algo, setAlgo] = useState('bubbleSort');
 
   let onSort = () => {
-    if (algo === 'Bubble Sort')
+    if (algo === 'bubbleSort')
       bubbleSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
-    else if (algo === 'Selection Sort')
+    else if (algo === 'selectionSort')
       selectionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);  
-    else if (algo === 'Quick Sort')
+    else if (algo === 'quickSort')
       quickSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
-    else if (algo === 'Merge Sort')
+    else if (algo === 'mergeSort')
       mergeSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
-    else if (algo === 'Insertion Sort')
+    else if (algo === 'insertionSort')
       insertionSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
   }
 
@@ -86,6 +87,7 @@ function App() {
           bars
         }
       </div>
+      <Legends algo={algo} />
       <p id="foot-note">Imagined by UnEmployed Alumni</p>
     </div>
   );

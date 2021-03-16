@@ -34,11 +34,11 @@ export default function AlgosDropdown({algo,setAlgo}) {
                 label="Algorithm"
             >
                 
-                <MenuItem value="Bubble Sort">Bubble Sort</MenuItem>
-                <MenuItem value="Selection Sort">Selection Sort</MenuItem>
-                <MenuItem value="Merge Sort">Merge Sort</MenuItem>
-                <MenuItem value="Insertion Sort">Insertion Sort</MenuItem>
-                <MenuItem value="Quick Sort">Quick Sort</MenuItem>
+                <MenuItem value="bubbleSort">Bubble Sort</MenuItem>
+                <MenuItem value="selectionSort">Selection Sort</MenuItem>
+                <MenuItem value="mergeSort">Merge Sort</MenuItem>
+                <MenuItem value="insertionSort">Insertion Sort</MenuItem>
+                <MenuItem value="quickSort">Quick Sort</MenuItem>
             </Select>
         </FormControl>
     )
