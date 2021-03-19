@@ -6,15 +6,17 @@ export default function Bar({len,max,val,i,swapRef,selectedRef,compRef,sortedRef
     let width=(window.innerWidth)/(2.4*len);
     let height=((3*window.innerHeight/5)/max)*val;
 
+    if(sortedRef.includes(i)){
+        colorRef="#09f272";
+    }
+    
     if(swapRef.includes(i)){
         colorRef="red";
     }
     if(compRef.includes(i)){
         colorRef="yellow";
     }
-    if(sortedRef.includes(i)){
-        colorRef="#09f272";
-    }
+    
     if(selectedRef.includes(i)){
         colorRef="#ff00fa";
     }

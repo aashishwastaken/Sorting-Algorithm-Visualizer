@@ -36,7 +36,7 @@ function App() {
     else if (algo === 'mergeSort')
       mergeSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
     else if (algo === 'insertionSort')
-      insertionSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+      insertionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
   }
 
   useEffect(() => {

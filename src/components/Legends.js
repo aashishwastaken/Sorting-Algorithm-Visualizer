@@ -7,14 +7,14 @@ export default function Legends({algo}) {
     let legendsData={
         bubbleSort:[
             ['red','Swap'],
-            ['yellow','Comparision'],
+            ['yellow','Comparision (inside "bubble")'],
             ['#09f272','Sorted']
         ],
         selectionSort:[
             ['red','Swap'],
             ['yellow','Hunting the min value'],
-            ['#09f272','Sorted'],
-            ['#ff00fa','Current min value']
+            ['#ff00fa','Current "selected" min value'],
+            ['#09f272','Sorted']
         ],
         quickSort:[
             ['red','Swap'],
@@ -29,13 +29,14 @@ export default function Legends({algo}) {
         insertionSort:[
             ['red','Swap'],
             ['yellow','Comparision'],
+            ['#ff00fa','Element about to be "inserted"'],
             ['#09f272','Sorted']
         ]
 
     }
 console.log(algo);
     return (
-        <div id='legend'>Legends
+        <div id='legend'><span style={{fontWeight:600}}>Legends</span>
             {legendsData[algo].map((x,i)=>{
                 
                 return ( <div className="row" style={{justifyContent:'flex-start'}}>
