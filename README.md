@@ -2,7 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Only Bubble Sort is implemented yet :)
+## Only these algorithms are implemented yet :)
+-- Bubble Sort
+-- Selection Sort
+-- Insertion Sort
 ## Available Scripts
 
 In the project directory, you can run:
