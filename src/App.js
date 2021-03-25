@@ -34,7 +34,7 @@ function App() {
     else if (algo === 'quickSort')
       quickSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
     else if (algo === 'mergeSort')
-      mergeSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+      mergeSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
     else if (algo === 'insertionSort')
       insertionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
   }
@@ -53,10 +53,18 @@ function App() {
 
   useEffect(() => {
     setBars(ar.map((x, i) => {
-      return <Bar i={i} val={x} max={100} len={len} swapRef={swapIndex} selectedRef={selectedIndex} compRef={compIndex} sortedRef={sortedIndex} />
+      return <Bar i={i} 
+                  val={x} 
+                  max={100} 
+                  len={len} 
+                  algo={algo}
+                  swapRef={swapIndex} 
+                  selectedRef={selectedIndex} 
+                  compRef={compIndex} 
+                  sortedRef={sortedIndex} />
     }));
     //setSwapIndex([-1,-1]);
-  }, [ar, len, swapIndex, selectedIndex, compIndex, sortedIndex]);
+  }, [ar, len,algo, swapIndex, selectedIndex, compIndex, sortedIndex]);
 
 
 

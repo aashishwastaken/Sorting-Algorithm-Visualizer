@@ -22,8 +22,8 @@ export default function Legends({algo}) {
             ['#09f272','Sorted']
         ],
         mergeSort:[
-            ['red','Swap'],
-            ['yellow','Comparision'],
+        ['red','Comparing the 2 elements of 2 sorted sub-arrays and merging the smaller one to the final array'],
+            ['yellow','The sub-array to be broken in half'],
             ['#09f272','Sorted']
         ],
         insertionSort:[

@@ -1,42 +1,55 @@
 import React from 'react'
 import Tooltip from '@material-ui/core/Tooltip';
 
-export default function Bar({len,max,val,i,swapRef,selectedRef,compRef,sortedRef}) {
-    let colorRef='#3cb1e0';
-    let width=(window.innerWidth)/(2.4*len);
-    let height=((3*window.innerHeight/5)/max)*val;
+export default function Bar({ len, algo, max, val, i, swapRef, selectedRef, compRef, sortedRef }) {
+    let colorRef = '#3cb1e0';
+    let width = (window.innerWidth) / (2.4 * len);
+    let height = ((3 * window.innerHeight / 5) / max) * val;
 
-    if(sortedRef.includes(i)){
-        colorRef="#09f272";
-    }
-    
-    if(swapRef.includes(i)){
-        colorRef="red";
-    }
-    if(compRef.includes(i)){
-        colorRef="yellow";
-    }
-    
-    if(selectedRef.includes(i)){
-        colorRef="#ff00fa";
-    }
-    
 
-    if(window.innerWidth<500){
-    height=(window.innerHeight)/(2.4*len);
-    width=((3*window.innerWidth/5)/max)*val;
+
+    if (algo === 'mergeSort') {
+        if (i >= selectedRef[0] && i < selectedRef[1]) {
+            colorRef = "yellow";
+        }
+        
+        if (i >= sortedRef[0] && i < sortedRef[1]) {
+            colorRef = "#09f272";
+        }
+       
+    } else {
+        if (sortedRef.includes(i)) {
+            colorRef = "#09f272";
+        }
+        
+        if (compRef.includes(i)) {
+            colorRef = "yellow";
+        }
+
+        if (selectedRef.includes(i)) {
+            colorRef = "#ff00fa";
+        }
+    }
+
+    if (swapRef.includes(i)) {
+            colorRef = "red";
+        }
+        
+    if (window.innerWidth < 500) {
+        height = (window.innerHeight) / (2.4 * len);
+        width = ((3 * window.innerWidth / 5) / max) * val;
     }
     return (
         <Tooltip key={i} title={val} >
-            
-        <li className="bar" key={i}  style={{
-                                    border:'1px solid black',
-                                    backgroundColor:colorRef,
-                                    width,
-                                    height
-                                    }}>
-            {val}
-        </li>
+
+            <li className="bar" key={i} style={{
+                border: '1px solid black',
+                backgroundColor: colorRef,
+                width,
+                height
+            }}>
+                {val}
+            </li>
         </Tooltip>
     )
 }
