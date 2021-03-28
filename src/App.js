@@ -19,12 +19,13 @@ function App() {
   let [speed, setSpeed] = useState(50);
   let [swapIndex, setSwapIndex] = useState([]);
   let [selectedIndex, setSelectedIndex] = useState([]);
+  let [quickedIndex, setQuickedIndex] = useState([]);
   let [compIndex, setCompIndex] = useState([]);
   let [sortedIndex, setSortedIndex] = useState([]);
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
   let [slider, setSlider] = useState(null);
-  let [algo, setAlgo] = useState('bubbleSort');
+  let [algo, setAlgo] = useState('quickSort');
 
   let onSort = () => {
     if (algo === 'bubbleSort')
@@ -32,7 +33,7 @@ function App() {
     else if (algo === 'selectionSort')
       selectionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);  
     else if (algo === 'quickSort')
-      quickSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+      quickSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex,setQuickedIndex);
     else if (algo === 'mergeSort')
       mergeSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
     else if (algo === 'insertionSort')
@@ -44,11 +45,12 @@ function App() {
   }, [len,speed]);
 
   useEffect(() => {
-    setAr(Array.from({ length: len }, () => Math.floor(Math.random() * 100)));
+    setAr(Array.from({ length: len }, () => Math.floor(1+Math.random() * 100)));
     setSwapIndex([]);
     setCompIndex([]);
     setSortedIndex([]);
     setSelectedIndex([]);
+    setQuickedIndex([]);
   }, [len, algo,speed]);
 
   useEffect(() => {
@@ -61,10 +63,11 @@ function App() {
                   swapRef={swapIndex} 
                   selectedRef={selectedIndex} 
                   compRef={compIndex} 
-                  sortedRef={sortedIndex} />
+                  sortedRef={sortedIndex}
+                  quickedIndex={quickedIndex} />
     }));
     //setSwapIndex([-1,-1]);
-  }, [ar, len,algo, swapIndex, selectedIndex, compIndex, sortedIndex]);
+  }, [ar, len,algo, swapIndex, quickedIndex,selectedIndex, compIndex, sortedIndex]);
 
 
 

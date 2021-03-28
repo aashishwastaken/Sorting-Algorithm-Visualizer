@@ -17,12 +17,14 @@ export default function Legends({algo}) {
             ['#09f272','Sorted']
         ],
         quickSort:[
-            ['red','Swap'],
-            ['yellow','Comparision'],
-            ['#09f272','Sorted']
+            ['#ff00fa','Current subarray under sorting'],
+            ['red','Current "pivot"'],
+            ['yellow','Arranging elements to find new pivot position'],
+            ['#09f272','Sorted elements which were a pivot at some time'],
+            ['#3cb1e0','Sorted elements which were never a pivot at any time (after sorting)']
         ],
         mergeSort:[
-        ['red','Comparing the 2 elements of 2 sorted sub-arrays and merging the smaller one to the final array'],
+            ['red','Comparing the 2 elements of 2 sorted sub-arrays and "merging" the smaller one to the final array'],
             ['yellow','The sub-array to be broken in half'],
             ['#09f272','Sorted']
         ],
@@ -34,7 +36,7 @@ export default function Legends({algo}) {
         ]
 
     }
-console.log(algo);
+//console.log(algo);
     return (
         <div id='legend'><span style={{fontWeight:600}}>Legends</span>
             {legendsData[algo].map((x,i)=>{

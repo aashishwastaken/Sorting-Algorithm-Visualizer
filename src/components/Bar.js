@@ -1,14 +1,29 @@
 import React from 'react'
 import Tooltip from '@material-ui/core/Tooltip';
 
-export default function Bar({ len, algo, max, val, i, swapRef, selectedRef, compRef, sortedRef }) {
+export default function Bar({ len, algo, max, val, i, swapRef, selectedRef, compRef, sortedRef,quickedIndex }) {
     let colorRef = '#3cb1e0';
     let width = (window.innerWidth) / (2.4 * len);
     let height = ((3 * window.innerHeight / 5) / max) * val;
 
 
 
-    if (algo === 'mergeSort') {
+    if (algo === 'quickSort') {
+        if (i >= selectedRef[0] && i < selectedRef[1]) {
+            colorRef = "#ff00fa";
+        }
+        
+
+        if (i >= sortedRef[0] && i < sortedRef[1]) {
+            colorRef = "#09f272";
+        }
+
+        if (quickedIndex.includes(i)) {
+            colorRef = "#09f272";
+        }
+       
+       
+    }else if (algo === 'mergeSort') {
         if (i >= selectedRef[0] && i < selectedRef[1]) {
             colorRef = "yellow";
         }
@@ -21,16 +36,16 @@ export default function Bar({ len, algo, max, val, i, swapRef, selectedRef, comp
         if (sortedRef.includes(i)) {
             colorRef = "#09f272";
         }
-        
-        if (compRef.includes(i)) {
-            colorRef = "yellow";
-        }
 
         if (selectedRef.includes(i)) {
             colorRef = "#ff00fa";
         }
     }
 
+    if (compRef.includes(i)) {
+        colorRef = "yellow";
+    }
+    
     if (swapRef.includes(i)) {
             colorRef = "red";
         }

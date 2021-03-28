@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Selection Sort
 * Insertion Sort
 * Merge Sort
+* Quick Sort
 ===========================================================================
 ## Available Scripts
 

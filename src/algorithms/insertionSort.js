@@ -31,7 +31,7 @@ function sleep(ms) {
   
   let curIndex, temp;
   setSortedIndex(prevArray => [...prevArray, 0]);
-  for (let i = 1; i < b.length; i++) {
+  for (let i = 0; i < b.length; i++) {
     curIndex = i;
     while (curIndex > 0) {
       await delayForComparision(b, curIndex - 1, curIndex);
