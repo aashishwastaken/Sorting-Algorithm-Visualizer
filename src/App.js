@@ -65,6 +65,7 @@ function App() {
     setBars(<div></div>);
     setBars(ar.map((x, i) => {
       return <Bar key={`bar-${i}`}
+        i={i}
         val={x}
         max={100}
         len={len}
