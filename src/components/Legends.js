@@ -41,7 +41,7 @@ export default function Legends({algo}) {
         <div id='legend'><span style={{fontWeight:600}}>Legends</span>
             {legendsData[algo].map((x,i)=>{
                 
-                return ( <div className="row" style={{justifyContent:'flex-start'}}>
+                return ( <div className="row" key={`legend-${i}`} style={{justifyContent:'flex-start'}}>
                     <div className="legendColor" style={{backgroundColor:x[0]}} ></div>
                     <div className="legendTitle" >{x[1]}</div>
                     

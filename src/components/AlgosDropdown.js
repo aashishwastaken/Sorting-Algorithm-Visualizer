@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function AlgosDropdown({algo,setAlgo}) {
+export default function AlgosDropdown({algo,sorting,setAlgo}) {
     const classes = useStyles();
     
 
@@ -24,7 +24,14 @@ export default function AlgosDropdown({algo,setAlgo}) {
     };
 
     return (
-        <FormControl variant="outlined" className={classes.formControl} >
+        <FormControl variant="outlined" className={classes.formControl} onClick={() => {
+            if (sorting) {
+              window.location.reload()
+            }
+            else {
+              return null;
+            }
+          }} >
             <InputLabel id="demo-simple-select-outlined-label">Algorithm</InputLabel>
             <Select
                 labelId="demo-simple-select-outlined-label"

@@ -55,9 +55,9 @@ export default function Bar({ len, algo, max, val, i, swapRef, selectedRef, comp
         width = ((3 * window.innerWidth / 5) / max) * val;
     }
     return (
-        <Tooltip key={i} title={val} >
+        <Tooltip   title={val} >
 
-            <li className="bar" key={i} style={{
+            <li className="bar"   style={{
                 border: '1px solid black',
                 backgroundColor: colorRef,
                 width,

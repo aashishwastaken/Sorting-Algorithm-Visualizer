@@ -24,50 +24,59 @@ function App() {
   let [sortedIndex, setSortedIndex] = useState([]);
   let [ar, setAr] = useState([]);
   let [bars, setBars] = useState(<div></div>);
-  let [slider, setSlider] = useState(null);
+  let [arraySlider, setArraySlider] = useState(null);
+  let [speedSlider, setSpeedSlider] = useState(null);
   let [algo, setAlgo] = useState('quickSort');
+  let [sorting, setSorting] = useState(false);
 
-  let onSort = () => {
+  let onSort = async () => {
+
+    setSorting(true);
     if (algo === 'bubbleSort')
-      bubbleSort(ar, len,speed, setAr, setSwapIndex,setCompIndex,setSortedIndex);
+      await bubbleSort(ar, len, speed, setAr, setSwapIndex, setCompIndex, setSortedIndex);
     else if (algo === 'selectionSort')
-      selectionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);  
-    else if (algo === 'quickSort')
-      quickSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex,setQuickedIndex);
+     await selectionSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
+    else if (algo === 'quickSort') 
+      await quickSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex, setQuickedIndex);
     else if (algo === 'mergeSort')
-      mergeSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
+     await mergeSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
     else if (algo === 'insertionSort')
-      insertionSort(ar, len,speed, setAr, setSwapIndex,setSelectedIndex,setCompIndex,setSortedIndex);
+    await  insertionSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
+    setSorting(false);
   }
 
   useEffect(() => {
-    setSlider(<><ArraySizeSlider value={len} setValue={(val) => setLen(val)} /><SpeedSlider setVal={(val) => setSpeed(val)} /></>)
-  }, [len,speed]);
+    setArraySlider(<ArraySizeSlider value={len} sorting={sorting} setValue={(val) => setLen(val)} />)
+  }, [len, sorting]);
+  useEffect(() => {
+    setSpeedSlider(<SpeedSlider setVal={(val) => setSpeed(val)} />)
+  }, [speed]);
 
   useEffect(() => {
-    setAr(Array.from({ length: len }, () => Math.floor(1+Math.random() * 100)));
+    setAr(Array.from({ length: len }, () => Math.floor(1 + Math.random() * 100)));
     setSwapIndex([]);
     setCompIndex([]);
     setSortedIndex([]);
     setSelectedIndex([]);
     setQuickedIndex([]);
-  }, [len, algo,speed]);
+  }, [len, algo]);
 
   useEffect(() => {
+    setBars(<div></div>);
     setBars(ar.map((x, i) => {
-      return <Bar i={i} 
-                  val={x} 
-                  max={100} 
-                  len={len} 
-                  algo={algo}
-                  swapRef={swapIndex} 
-                  selectedRef={selectedIndex} 
-                  compRef={compIndex} 
-                  sortedRef={sortedIndex}
-                  quickedIndex={quickedIndex} />
+      return <Bar key={`bar-${i}`}
+        val={x}
+        max={100}
+        len={len}
+        algo={algo}
+        swapRef={swapIndex}
+        selectedRef={selectedIndex}
+        compRef={compIndex}
+        sortedRef={sortedIndex}
+        quickedIndex={quickedIndex} />
     }));
     //setSwapIndex([-1,-1]);
-  }, [ar, len,algo, swapIndex, quickedIndex,selectedIndex, compIndex, sortedIndex]);
+  }, [algo, swapIndex, quickedIndex, selectedIndex, compIndex, sortedIndex]);
 
 
 
@@ -79,28 +88,33 @@ function App() {
     <div className="App">
       <Header />
       <div className="row secondary-header" >
-        <AlgosDropdown algo={algo} setAlgo={setAlgo} />
+        <AlgosDropdown algo={algo} sorting={sorting} setAlgo={setAlgo} />
         {
-          slider
+          arraySlider
+        }
+        {
+          speedSlider
         }
 
         <button
           className="btn"
-          onClick={() => onSort()}
+          onClick={async () => await onSort()}
         >
           <PlaylistPlayIcon /> Sort
       </button>
-      
+
       </div>
 
-      <div id="chart" className={(window.innerWidth>480)?'row':'column'}>
+      <div id="chart" className={(window.innerWidth > 480) ? 'row' : 'column'}>
         {
           bars
         }
       </div>
       <Legends algo={algo} />
       <p id="foot-note">Imagined by UnEmployed Alumni</p>
+
     </div>
+
   );
 }
 

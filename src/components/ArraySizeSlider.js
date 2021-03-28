@@ -15,13 +15,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ArraySizeSlider({value, setValue}) {
+export default function ArraySizeSlider({ value, sorting, setValue }) {
   const classes = useStyles();
   //const [value, setValue] = React.useState(30);
-  
+
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
-  
+
   };
 
   const handleInputChange = (event) => {
@@ -37,7 +37,14 @@ export default function ArraySizeSlider({value, setValue}) {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={() => {
+      if (sorting) {
+        window.location.reload()
+      }
+      else {
+        return null;
+      }
+    }}  >
       <Typography id="input-slider" gutterBottom>
         Select Array Size
       </Typography>
