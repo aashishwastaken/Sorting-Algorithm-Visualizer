@@ -7,7 +7,7 @@ import '../App.css';
 export default function Header() {
     return (
         <div className="container"  >
-            <div className="header-text"><img src={algoIcon} alt="Algo-Icon" className="algo-image" /> Algorithms Visualizer</div>
+            <div className="header-text"><img src={algoIcon} alt="Algo-Icon" className="algo-image" /> Sorting Algorithms Visualizer</div>
             <img src={header} alt="header" className="header-image" />
             <a href="https://github.com/aashishwastaken/Sorting-Algorithm-Visualizer"
                 target="_blank" rel="noreferrer" >

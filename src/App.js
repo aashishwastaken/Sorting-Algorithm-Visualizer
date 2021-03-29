@@ -13,6 +13,7 @@ import quickSort from './algorithms/quickSort';
 import mergeSort from './algorithms/mergeSort';
 import insertionSort from './algorithms/insertionSort';
 import selectionSort from './algorithms/selectionSort';
+import heapSort from './algorithms/heapSort';
 
 function App() {
   let [len, setLen] = useState(30);
@@ -26,7 +27,7 @@ function App() {
   let [bars, setBars] = useState(<div></div>);
   let [arraySlider, setArraySlider] = useState(null);
   let [speedSlider, setSpeedSlider] = useState(null);
-  let [algo, setAlgo] = useState('quickSort');
+  let [algo, setAlgo] = useState('heapSort');
   let [sorting, setSorting] = useState(false);
 
   let onSort = async () => {
@@ -41,7 +42,9 @@ function App() {
     else if (algo === 'mergeSort')
      await mergeSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
     else if (algo === 'insertionSort')
-    await  insertionSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
+     await  insertionSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
+    else if (algo === 'heapSort')
+      await  heapSort(ar, len, speed, setAr, setSwapIndex, setSelectedIndex, setCompIndex, setSortedIndex);
     setSorting(false);
   }
 

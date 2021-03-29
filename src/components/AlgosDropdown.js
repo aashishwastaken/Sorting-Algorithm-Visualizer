@@ -46,6 +46,7 @@ export default function AlgosDropdown({algo,sorting,setAlgo}) {
                 <MenuItem value="mergeSort">Merge Sort</MenuItem>
                 <MenuItem value="insertionSort">Insertion Sort</MenuItem>
                 <MenuItem value="quickSort">Quick Sort</MenuItem>
+                <MenuItem value="heapSort">Heap Sort</MenuItem>
             </Select>
         </FormControl>
     )

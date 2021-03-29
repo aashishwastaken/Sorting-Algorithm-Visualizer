@@ -33,6 +33,12 @@ export default function Legends({algo}) {
             ['yellow','Comparision'],
             ['#ff00fa','Element about to be "inserted"'],
             ['#09f272','Sorted']
+        ],
+        heapSort:[
+            ['red','Swap'],
+            ['yellow','Comparision'],
+            ['#ff00fa','Element about to be "heapified"'],
+            ['#09f272','Sorted']
         ]
 
     }
