@@ -1,9 +1,9 @@
 # Sorting Algorithms Visualizer
-### This project is built using ReactJS and Material UI is also used.
-### User can change slide to alter array size and speed.
-### User can view the sorting process as it happens.
+#### This project is built using ReactJS and Material UI is also used.
+#### User can change slide to alter array size and speed.
+#### User can view the sorting process as it happens.
 
-## Only these algorithms are implemented yet :)
+## These are the algorithms that have been implemented :)
 * Bubble Sort
 * Selection Sort
 * Insertion Sort
