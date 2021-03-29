@@ -9,7 +9,7 @@
 * Insertion Sort
 * Merge Sort
 * Quick Sort
-* Heap Sorted
+* Heap Sort
 
 Link to the website: [on GithubPages](https://aashishwastaken.github.io/Sorting-Algorithm-Visualizer/)
 
