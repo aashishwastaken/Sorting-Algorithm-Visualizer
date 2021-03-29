@@ -27,7 +27,7 @@ function App() {
   let [bars, setBars] = useState(<div></div>);
   let [arraySlider, setArraySlider] = useState(null);
   let [speedSlider, setSpeedSlider] = useState(null);
-  let [algo, setAlgo] = useState('heapSort');
+  let [algo, setAlgo] = useState('quickSort');
   let [sorting, setSorting] = useState(false);
 
   let onSort = async () => {
